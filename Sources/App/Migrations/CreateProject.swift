@@ -1,6 +1,6 @@
 //
 //  CreateProject.swift
-//  
+//
 //
 //  Created by Shawn Gee on 5/26/20.
 //
@@ -9,7 +9,7 @@ import Fluent
 
 struct CreateProject: Migration {
     func prepare(on database: Database) -> EventLoopFuture<Void> {
-        return database.schema("projects")
+        database.schema("projects")
             .id()
             .field("name", .string, .required)
             .field("hero_image_url", .string, .required)
@@ -20,6 +20,6 @@ struct CreateProject: Migration {
             .create()
     }
     func revert(on database: Database) -> EventLoopFuture<Void> {
-        return database.schema("projects").delete()
+        database.schema("projects").delete()
     }
 }

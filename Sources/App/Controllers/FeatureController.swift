@@ -1,6 +1,6 @@
 //
 //  FeatureController.swift
-//  
+//
 //
 //  Created by Shawn Gee on 5/26/20.
 //
@@ -23,7 +23,7 @@ struct FeatureController: RouteCollection {
     }
     
     func delete(req: Request) throws -> EventLoopFuture<HTTPStatus> {
-        return Feature.find(req.parameters.get("id"), on: req.db)
+        Feature.find(req.parameters.get("id"), on: req.db)
             .unwrap(or: Abort(.notFound))
             .flatMap { $0.delete(on: req.db) }
             .transform(to: .ok)

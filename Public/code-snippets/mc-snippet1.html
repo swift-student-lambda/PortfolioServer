@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<head>
+    <title>Hello World</title>
+    <link rel="stylesheet" href="sundellsColors.css">
+</head>
+
+
+<pre class="splash"><code>swift
+<span class="keyword">struct</span> RingGraphView: <span class="type">View</span> {
+    <span class="keyword">@ObservedObject var</span> viewModel: <span class="type">RingGraphViewModel</span>
+    
+    <span class="keyword">var</span> body: <span class="keyword">some</span> <span class="type">View</span> {
+        
+        <span class="type">VStack</span> {
+            
+            <span class="type">Spacer</span>()
+            
+            <span class="type">Text</span>(<span class="string">"Principle"</span>)
+                .<span class="call">font</span>(.<span class="call">system</span>(size: <span class="number">32</span>, weight: .<span class="dotAccess">bold</span>))
+                .<span class="call">padding</span>(.<span class="dotAccess">bottom</span>, <span class="number">60</span>)
+            
+            <span class="type">HStack</span> {
+                
+                <span class="type">Spacer</span>()
+                
+                <span class="keyword">if</span> viewModel.<span class="property">firstRingName</span> != <span class="string">""</span> {
+                    <span class="type">VStack</span> {
+                        <span class="type">Text</span>(viewModel.<span class="property">firstRingName</span>)
+                            .<span class="call">foregroundColor</span>(.<span class="dotAccess">pink</span>)
+                            .<span class="call">font</span>(.<span class="call">system</span>(size: <span class="number">24</span>, weight: .<span class="dotAccess">bold</span>))
+                            .<span class="call">frame</span>(maxWidth: .<span class="dotAccess">infinity</span>)
+                        <span class="type">Ring</span>(startColor: <span class="type">Color</span>(#colorLiteral(red: <span class="number">0.8684985017</span>, green: <span class="number">0.6158105232</span>, blue: <span class="number">1</span>, alpha: <span class="number">1</span>)),
+                             endColor: .<span class="dotAccess">firstColor</span>,
+                             progress: viewModel.<span class="property">firstRingProgress</span>,
+                             shouldAnimate: viewModel.<span class="property">shouldAnimate</span>)
+                            .<span class="call">padding</span>()
+                        <span class="type">Text</span>(<span class="string">"</span>\(viewModel.<span class="property">firstRingValue</span>.<span class="property">currencyString</span> ?? <span class="string">""</span>) <span class="string">/</span> \(viewModel.<span class="property">firstRingMaxValue</span>.<span class="property">currencyString</span> ?? <span class="string">""</span>)<span class="string">"</span>)
+                            .<span class="call">font</span>(.<span class="call">system</span>(size: <span class="number">14</span>, weight: .<span class="dotAccess">bold</span>))
+                            .<span class="call">frame</span>(maxWidth: .<span class="dotAccess">infinity</span>)
+                            .<span class="call">padding</span>(.<span class="dotAccess">top</span>, <span class="number">10</span>)
+                    }.<span class="call">frame</span>(maxWidth: .<span class="dotAccess">infinity</span>)
+                }
+                
+                <span class="keyword">if</span> viewModel.<span class="property">secondRingName</span> != <span class="string">""</span> {
+                    <span class="type">VStack</span> {
+                        <span class="type">Text</span>(viewModel.<span class="property">secondRingName</span>)
+                            .<span class="call">foregroundColor</span>(.<span class="dotAccess">blue</span>)
+                            .<span class="call">font</span>(.<span class="call">system</span>(size: <span class="number">24</span>, weight: .<span class="dotAccess">bold</span>))
+                            .<span class="call">frame</span>(maxWidth: .<span class="dotAccess">infinity</span>)
+                        <span class="type">Ring</span>(startColor: <span class="type">Color</span>(#colorLiteral(red: <span class="number">0.7489833048</span>, green: <span class="number">1</span>, blue: <span class="number">1</span>, alpha: <span class="number">1</span>)),
+                             endColor: .<span class="dotAccess">secondColor</span>,
+                             progress: viewModel.<span class="property">secondRingProgress</span>,
+                             shouldAnimate: viewModel.<span class="property">shouldAnimate</span>)
+                            .<span class="call">padding</span>()
+                        <span class="type">Text</span>(<span class="string">"</span>\(viewModel.<span class="property">secondRingValue</span>.<span class="property">currencyString</span> ?? <span class="string">""</span>) <span class="string">/</span> \(viewModel.<span class="property">secondRingMaxValue</span>.<span class="property">currencyString</span> ?? <span class="string">""</span>)<span class="string">"</span>)
+                            .<span class="call">font</span>(.<span class="call">system</span>(size: <span class="number">14</span>, weight: .<span class="dotAccess">bold</span>))
+                            .<span class="call">frame</span>(maxWidth: .<span class="dotAccess">infinity</span>)
+                            .<span class="call">padding</span>(.<span class="dotAccess">top</span>, <span class="number">10</span>)
+                    }.<span class="call">frame</span>(maxWidth: .<span class="dotAccess">infinity</span>)
+                }
+            
+                <span class="type">Spacer</span>()
+            }
+            
+            <span class="type">Spacer</span>()
+        }.<span class="call">foregroundColor</span>(.<span class="dotAccess">white</span>)
+    }
+}</code></pre>
+
+
